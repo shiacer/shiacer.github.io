@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+![database](https://github.com/shiacer/shiacer.github.io/blob/master/pic/database-all.jpg?raw=true)
+
+##1NF 无重复列
+
+##2NF 完全依赖于主键
+
+##3NF 没有传递依赖
+
+##BCNF 如果对于关系模式R中存在的任意一个非平凡函数依赖X→A，都满足X是R的一个候选键，那么关系模式R就属于BCNF。
+
+总结
+1NF 无重复列，每列都不可再分
+2NF 在1NF基础上，消除非主属性对键的部分依赖
+3NF 在2NF基础上，消除非主属性对键的传递依赖
+BCNF 在3NF基础上，消除主属性对键的传递依赖，也即非主属性不能决定键
+
+
+
+SQL or NOSQL
+在实际应用中，其实现在我们并不按照范式设计数据库，原因是数据库的多表查找费时费力，一方面杀死很多脑细胞，另一方面会带来很多的join操作，有极大的开销。
+
+从数据设计的ACID原则来看，SQL有强一致性、几乎没有冗余数据的优点，但缺点就是查询、新增速率不高。
+
+NOSQL解决的一个核心问题就是大量的join操作，通过减少一致性，加大数据冗余来减少join操作，加速查询；并且简化数据之间的同步，给数据打timestamp，以便进行快速的分布式扩容。
+
+在当前大数据的场景下，我认为投奔NOSQL的阵营是不错的选择，尤其在有mongodb这种几乎拥有所有SQL特性的数据库时，ORM同时覆盖SQL与NOSQL也成为了可能。
+
+来源url:http://www.anwcl.com/wordpress/回顾数据库的范式/#more-356 (http://www.anwcl.com/wordpress/%E5%9B%9E%E9%A1%BE%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E8%8C%83%E5%BC%8F/#more-356)
+
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+<p><img src="https://github.com/shiacer/shiacer.github.io/blob/master/pic/database-all.jpg?raw=true" alt="database" title=""></p>
+
+<h2 id="1nf">1NF 无重复列</h2>
+
+<h2 id="2nf">2NF 完全依赖于主键</h2>
+
+<h2 id="3nf">3NF 没有传递依赖</h2>
+
+<h2 id="bcnfrxaxrrbcnf">BCNF 如果对于关系模式R中存在的任意一个非平凡函数依赖X→A，都满足X是R的一个候选键，那么关系模式R就属于BCNF。</h2>
+
+<p>总结
+1NF 无重复列，每列都不可再分
+2NF 在1NF基础上，消除非主属性对键的部分依赖
+3NF 在2NF基础上，消除非主属性对键的传递依赖
+BCNF 在3NF基础上，消除主属性对键的传递依赖，也即非主属性不能决定键</p>
+
+<p>SQL or NOSQL
+在实际应用中，其实现在我们并不按照范式设计数据库，原因是数据库的多表查找费时费力，一方面杀死很多脑细胞，另一方面会带来很多的join操作，有极大的开销。</p>
+
+<p>从数据设计的ACID原则来看，SQL有强一致性、几乎没有冗余数据的优点，但缺点就是查询、新增速率不高。</p>
+
+<p>NOSQL解决的一个核心问题就是大量的join操作，通过减少一致性，加大数据冗余来减少join操作，加速查询；并且简化数据之间的同步，给数据打timestamp，以便进行快速的分布式扩容。</p>
+
+<p>在当前大数据的场景下，我认为投奔NOSQL的阵营是不错的选择，尤其在有mongodb这种几乎拥有所有SQL特性的数据库时，ORM同时覆盖SQL与NOSQL也成为了可能。</p>
+
+<p>来源url:http://www.anwcl.com/wordpress/回顾数据库的范式/#more-356 (http://www.anwcl.com/wordpress/%E5%9B%9E%E9%A1%BE%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E8%8C%83%E5%BC%8F/#more-356)</p>
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "2.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
+</html>
